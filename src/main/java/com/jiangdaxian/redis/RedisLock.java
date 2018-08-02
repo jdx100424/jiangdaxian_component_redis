@@ -110,7 +110,7 @@ public class RedisLock {
 		boolean result = false;
 		try {
 			ValueOperations valueOperations = redisTemplate.opsForValue();
-			Long l = valueOperations.increment(keyStr, 1);
+			Long l = valueOperations.increment(keyStr, 1L);
 			if (l != null && l.equals(1L)) {
 				result = true;
 				redisTemplate.expire(keyStr, TIMEOUT + 2000, TIME_UNIT);
