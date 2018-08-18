@@ -5,14 +5,16 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
-public class RedisLock {
+import com.jiangdaxian.redis.base.RedisBase;
+
+public class RedisLock extends RedisBase{
 	private static final long TIMEOUT = 10000L;
 	private static final TimeUnit TIME_UNIT = TimeUnit.MILLISECONDS;
 	
 	private RedisTemplate redisTemplate;
 
 	public RedisLock(RedisTemplate redisTemplate) {
-		this.redisTemplate = redisTemplate;
+		super(redisTemplate);
 	}
 
 	/**
